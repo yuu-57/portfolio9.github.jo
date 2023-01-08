@@ -1,0 +1,230 @@
+@charset "utf-8";
+
+/* common */
+
+body {
+  margin: 0;
+  color: #333333;
+}
+
+img {
+  max-width: 100%;
+  /* 大きい画面で見たときには画像は指定したpxとなり、小さい画面で見たときにも画面サイズより画像が大きく表示させることがなくなります。
+  max-width:100%により画面サイズから画像がはみ出ないように設定できる
+  縦横比が崩れてしまったときはheight: autoを指定 */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  opacity: .7;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 0 4%;
+  max-width: 800px;
+  /* max-widthでは「widthの取ることのできる最大値」を指定します。つまり、要素がこれ以上は大きくならない幅を指定することができます。
+  800pxより大きくならない、はみでないようにする
+  minだと800pxより小さくならないよってこと */
+}
+
+/* header */
+
+header {
+  text-align: center;
+  margin-top: 30px;
+  border-bottom: 1px solid lightgray;
+}
+
+header h1 {
+  margin-bottom: 15px;
+}
+
+header .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+header ul {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+}
+
+/* totally */
+
+.totally {
+  display: flex;
+  margin: 50px auto;
+  justify-content: space-between;
+}
+
+.totally .pic {
+  width: 50%;
+}
+
+.totally .pic img {
+  width: 100%;
+}
+
+.totally .text {
+  width: 42%;
+}
+
+.totally .sc-tittle {
+  font-size: 16px;
+  padding: 16px 0;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
+.totally p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.totally p + p {
+  margin-top: 30px;
+}
+
+.totally table {
+  font-size: 12px;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  /* 
+  border-collapseは「テーブルセルのボーダーの表示の仕方を指定するプロパティ」
+  表( <table>)の中のセルが境界を共有するか分離するかを設定します。
+  collapseで隣接するセルで境界線を共有します,
+  表の中のボーダーを重ねて表示させる
+
+  separateで隣接するセルが個別に境界線を持ちます
+  separateを指定することで、セルのボーダーの間隔をあけることが可能になります。 */
+}
+
+.totally th {
+  font-weight: normal;
+}
+
+.totally td,
+.totally th {
+  padding: 8px;
+}
+
+
+/* tableの列の幅を変えたい時は、行の先頭の要素に.class属性つけてcssで％で比率を設定してあげればいい */
+.totally table .color,
+.totally table .size {
+  width: 20%;
+}
+
+.totally table .quantity {
+  width: 60%;
+}
+
+.totally .order thead {
+  border-bottom: 1px solid lightgray;
+}
+
+.totally .order tr + tr {
+  border-top: 1px solid lightgray;
+}
+
+.totally .order td + td,
+.totally .order th + th {
+  border-left: 1px solid lightgray;
+}
+
+/* optionにつけても反映されないよ */
+.totally select {
+  width: 100%;
+  border: solid 1px #c3c3c3;
+  padding: 0 10px;
+}
+
+a.btn {
+  display: block;
+  margin-top: 20px;
+  border: #4B4B4B;
+  background: #4B4B4B;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  line-height: 50px;
+}
+
+.totally .list {
+  margin-bottom: 50px;
+}
+
+.totally .list tr {
+  border: 1px solid lightgray;
+}
+
+.totally .list td,
+.totally .list th {
+  border: 1px solid lightgray;
+}
+/* border-collapse: collapse;してるから境界線ダブらないよ。下のややこしい設定しなくて大丈夫 */
+/* .totally .list td + td, */
+/* .totally .list th + th, */
+/* .totally .list th + td { */
+  /* border-left: 1px solid lightgray; */
+/* } */
+
+.totally .list th {
+  background: #ECEBEB;
+}
+
+/* footer */
+
+footer {
+  text-align: center;
+  font-style: 10px;
+}
+
+footer small {
+  padding: 20px 0;
+}
+
+@media (max-width: 896px) {
+  .totally {
+    flex-direction: column;
+  }
+
+  .totally .pic {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .totally .pic img {
+    width: 100%;
+  }
+  
+  .totally .text {
+    width: 100%;
+  }
+}
